@@ -9,5 +9,5 @@ const bookSchema = new Schema({
     stock : {type:Number},
     //timestamps:true,
 })
-const Books = mongoose.model('Books',bookSchema)
+const Books = mongoose.model('Book',bookSchema)
 module.exports = Books

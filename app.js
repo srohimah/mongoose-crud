@@ -3,7 +3,7 @@ const mongoose = require ('mongoose')
 const bodyParser = require('body-parser')
 const books = require('./routes/books')
 const customers = require('./routes/customers')
-// const transactions = require('./routes/transactions')
+const transactions = require('./routes/transactions')
 
 const app = express()
 let url = 'mongodb://localhost:27017/library'
@@ -20,6 +20,6 @@ mongoose.connect(url, err=>{
 
 app.use('/books', books)
 app.use('/customers', customers)
-// app.use('/transactions', transaction)
+app.use('/transactions', transactions)
 
 app.listen(3000,()=>console.log('listening 3000'))

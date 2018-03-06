@@ -9,5 +9,5 @@ const customerSchema = new Schema({
     phone : {type:String},
     //timestamps:true,
 })
-const Customers = mongoose.model('Customers',customerSchema)
+const Customers = mongoose.model('Customer',customerSchema)
 module.exports = Customers
