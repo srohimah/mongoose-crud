@@ -10,6 +10,16 @@ module.exports = {
             })
         })
     },
+    showCustomerById (req, res){
+        Customer.findById(req.params.id).then(data=>{
+            res.status(200).json({
+                message : 'data found',
+                data
+            })
+        }).catch(err=>{
+            res.send(err.message)
+        })
+    },
     addCustomer (req, res){
         const {name, memberid, address, zipcode, phone} = req.body
         const customer = new Customer()

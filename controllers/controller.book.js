@@ -8,6 +8,18 @@ module.exports = {
                 message:'show all books',
                 data,
             })
+        }).catch(err=>{
+            res.send(err.message)
+        })
+    },
+    showBookById (req, res){
+        Book.findById(req.params.id).then(data=>{
+            res.status(200).json({
+                message : 'data found',
+                data
+            })
+        }).catch(err=>{
+            res.send(err.message)
         })
     },
     addBook (req, res){

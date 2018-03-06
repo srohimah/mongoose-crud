@@ -35,9 +35,6 @@ module.exports = {
             dataTransaction.in_date = moment().format()
             let fine = 0;
             let diff = moment(dataTransaction.in_date).diff(moment(dataTransaction.due_date),'day')
-            console.log(dataTransaction.due_date)
-            console.log(dataTransaction.in_date)
-            console.log(diff)
             if(diff>0){
                 fine = 500 * diff * dataTransaction.booklist.length
             }
@@ -46,18 +43,6 @@ module.exports = {
             res.send(dataTransaction)
         }).catch(err=>{
             res.send(err.message)
-        })
-    },
-    deleteTransaction (req, res){
-        Transaction.findByIdAndRemove(req.params.id).then(data=>{
-            res.status(200).json({
-                message : 'transaction successfully deleted',
-                data
-            })
-        }).catch(err=>{
-            res.status(500).json({
-                message:err.message
-            })
         })
     },
 }
